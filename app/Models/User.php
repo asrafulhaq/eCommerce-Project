@@ -42,5 +42,13 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * Get users comments
+     */
+    public function comments()
+    {
+        return $this -> hasMany('App\Models\Comment');
+    }
+
 
 }

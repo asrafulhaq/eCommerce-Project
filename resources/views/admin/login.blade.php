@@ -17,10 +17,11 @@
                             <p class="account-subtitle">Access to our dashboard</p>
 
                             <!-- Form -->
-                            <form action="{{ route('admin.login') }}" method="POST">
+                            <form action="{{ route('admin.login') }}" method="POST" autocomplete="off">
                                 @csrf
                                 <div class="form-group">
-                                    <input name="login_data" class="form-control" type="text" placeholder="Email / Cell / Username">
+                                    <input name="login_data" class="form-control" type="text"
+                                        placeholder="Email / Cell / Username">
                                 </div>
                                 <div class="form-group">
                                     <input name="password" class="form-control" type="password" placeholder="Password">
@@ -40,11 +41,13 @@
                             <!-- Social Login -->
                             <div class="social-login">
                                 <span>Login with</span>
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i class="fa fa-google"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i
+                                        class="fa fa-google"></i></a>
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have">Don’t have an account? <a href="{{ route('admin.register') }}">Register</a></div>
+                            <div class="text-center dont-have">Don’t have an account? <a
+                                    href="{{ route('admin.register') }}">Register</a></div>
                         </div>
                     </div>
                 </div>
@@ -54,4 +57,3 @@
     <!-- /Main Wrapper -->
 
 @endsection
-

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -28,43 +29,52 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"> --}}
+
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.min.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 
 
 
 
-@section('main-content')
-@show
-<!-- jQuery -->
-<script src="{{ asset('admin/assets/js/jquery-3.2.1.min.js') }}"></script>
+    @section('main-content')
+    @show
+    <!-- jQuery -->
+    <script src="{{ asset('admin/assets/js/jquery-3.2.1.min.js') }}"></script>
 
-<!-- Bootstrap Core JS -->
-<script src="{{ asset('admin/assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap Core JS -->
+    <script src="{{ asset('admin/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
 
 
-<!-- Slimscroll JS -->
-<script src="{{ asset('admin/assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- Slimscroll JS -->
+    <script src="{{ asset('admin/assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
-<script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
-<script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
 
-<!-- CK Editor -->
-<script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+    <!-- CK Editor -->
+    <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 
-<!-- Select 2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<!-- Custom JS -->
-<script src="{{ asset('admin/assets/js/script.js') }}"></script>
-<script src="{{ asset('admin/assets/js/comet/custom.js') }}"></script>
+    <!-- Select 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ asset('admin/assets/js/script.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/comet/custom.js') }}"></script>
+    {{-- <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+
 
 </body>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
+
 </html>

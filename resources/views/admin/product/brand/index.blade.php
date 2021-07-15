@@ -21,7 +21,7 @@
                         <div class="col-sm-12">
                             <h3 class="page-title">Welcome {{ Auth::user()->name }}!</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item active">Category</li>
+                                <li class="breadcrumb-item active">Product Brand</li>
                             </ul>
                         </div>
                     </div>
@@ -35,24 +35,24 @@
 
                         @include('validate')
 
-                        <a class="btn btn-sm btn-primary" data-toggle="modal" href="#add_category_modal">Add new
-                            Category</a>
+                        <a class="btn btn-sm btn-primary" data-toggle="modal" href="#add_brand_modal">Add new
+                            Brand</a>
 
                         <br>
                         <br>
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All Categories</h4>
+                                <h4 class="card-title">All Brands</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="blog_table" class="table table-striped mb-0">
+                                    <table id="brand_table" class="table table-striped mb-0">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Category Name</th>
-                                                <th>Category Slug</th>
-                                                <th>Time</th>
+                                                <th>Brand Name</th>
+                                                <th>Brand Slug</th>
+                                                <th>Logo</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -75,17 +75,21 @@
     <!-- /Main Wrapper -->
 
 
-    <div id="add_category_modal" class="modal fade">
+    <div id="add_brand_modal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h2>Add new Category</h2>
+                    <h2>Add new Brand</h2>
                     <hr>
-                    <form action="{{ route('category.store') }}" method="POST">
+                    <form id="brand_form" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Name</label>
                             <input name="name" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Logo</label>
+                            <input name="logo" type="file" class="form-control">
                         </div>
                         <div class="form-group">
                             <input class="btn btn-primary btn-sm" type="submit">
@@ -101,7 +105,7 @@
 
 
 
-    <div id="edit_category_modal" class="modal fade">
+    <div id="edit_brand_modal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">

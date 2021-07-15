@@ -16,10 +16,36 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $data = Category::all();
-        return view('admin.post.category.index', [
-            'all_data'      =>  $data
-        ]);
+        // $data = Category::all();
+        // return view('admin.post.category.index', [
+        //     'all_data'      =>  $data
+        // ]);
+
+        if(request() -> ajax()){
+            return datatables() -> of(Category::latest()->get()) -> addColumn('action', function($data){
+                $btn =  '<a class="btn btn-warning btn-sm" href="fgv"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>';
+                $btn .=  ' <a class="btn btn-danger btn-sm" href="#"> <i class="fa fa-trash" aria-hidden="true"></i> </a>';
+                return $btn;
+            }) -> addColumn('test', function($data){
+                return $data -> slug;
+            }) ->  addColumn('sta', function($data){
+                
+                $output = '<div class="status-toggle">';
+                $output .= '<input type="checkbox" ' . ( $data -> status == 1  ? "checked=\'checked\'" : "" )  .' status_id="'. $data -> id .'" id="cat_status_'. $data -> id .'" class="check cat_check">';
+                $output .= '<label for="cat_status_'. $data -> id .'" class="checktoggle">checkbox</label>';
+                $output .= '</div>';
+
+                return  $output;
+                    
+
+            }) -> rawColumns(['action', 'test', 'sta']) ->  make(true);
+        }
+
+        return view('admin.post.category.index');
+
+
+
+
     }
 
     /**

@@ -39,7 +39,9 @@ Route::post('admin/logout', [App\Http\Controllers\Auth\LoginController::class, '
 Route::post('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']) -> name('admin.register');
 
 
-
+// Comment Management 
+Route::post('blog-post-comments', [App\Http\Controllers\CommentController::class, 'postComment']) -> name('blog.post.comment');
+Route::post('blog-post-reply', [App\Http\Controllers\CommentController::class, 'addPostReply']) -> name('blog.post.reply');
 
 
 Route::group(['middleware' => 'auth'], function(){
@@ -61,6 +63,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     // Post Tag Route
     Route::resource('tag' , 'App\Http\Controllers\TagController');
+
+
+    // Product Brand 
+    Route::resource('brand' , 'App\Http\Controllers\BrandController');
 
 });
 

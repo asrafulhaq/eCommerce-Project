@@ -29,6 +29,16 @@ class Post extends Model
     }
 
 
+    /**
+     * Get all comments 
+     */
+    public function comments()
+    {
+       return $this -> hasMany('App\Models\Comment');
+    }
+
+
+
 
 
 

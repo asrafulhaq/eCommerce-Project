@@ -27,6 +27,7 @@
                     url : 'category/status-inactive/' + status_id,
                     success : function(data){
                         swal('Status Inactive successful');
+                        $('#blog_table').DataTable().ajax.reload(); 
                     }
                 });
             }else {
@@ -34,6 +35,7 @@
                     url : 'category/status-active/' + status_id,
                     success : function(data){
                         swal('Status Active successful');
+                        $('#blog_table').DataTable().ajax.reload();
                     }
                 });
             }
@@ -140,6 +142,101 @@
         $('#sidebar-menu ul li ul li.ok a').css('color', '#5ae8ff');
         $('#sidebar-menu ul li ul li.ok').parent('ul').parent('li').children('a').css('background-color', '#19c1dc');
         $('#sidebar-menu ul li ul li.ok').parent('ul').parent('li').children('a').addClass('subdrop');
+
+        $('#blog_table').DataTable({
+            processing : true,
+            serverSide : true,
+            ajax : {
+               url : 'category', 
+            },
+            columns : [
+                {
+                    data : 'id',
+                    name : 'id'
+                },
+                {
+                    data : 'name',
+                    name : 'name'
+                },
+                {
+                    data : 'slug',
+                    name : 'slug'
+                }, 
+                {
+                    data : 'created_at',
+                    name : 'created_at'
+                },
+                {
+                    data : 'sta',
+                    name : 'sta',
+                    
+                },
+                {
+                    data : 'test',
+                    name : 'test'
+                }
+            ] 
+        });
+
+
+        // Product Brand data table 
+        $('#brand_table').DataTable({
+            processing : true,
+            serverSide : true,
+            ajax : {
+                url : 'brand'
+            },
+            columns : [
+                {
+                    data : 'id',
+                    name : 'id',
+                },
+                {
+                    data : 'name',
+                    name : 'name',
+                },
+                {
+                    data : 'slug',
+                    name : 'slug',
+                },
+                {
+                    data : 'logo',
+                    name : 'logo',
+                    render : function(data, type, full, meta){
+                        return `<img style="height:60px;" src="media/products/brands/${data}">`;
+                    }
+                
+                },
+                {
+                    data : 'status',
+                    name : 'status',
+                },
+                {
+                    data : 'action',
+                    name : 'action'
+                }
+            ]
+        });
+
+        // Add brand 
+        $(document).on('submit', '#brand_form', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url : 'brand',
+                method : "POST",
+                data : new FormData(this),
+                contentType : false,
+                processData : false,
+                success : function(data){
+                    $('#brand_form')[0].reset();
+                    $('#add_brand_modal').modal('hide');
+                    $('#brand_table').DataTable().ajax.reload();
+                }
+            });
+            
+        });
+
 
 
     });
